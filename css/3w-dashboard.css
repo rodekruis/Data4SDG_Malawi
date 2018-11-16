@@ -36,6 +36,11 @@
     stroke: transparent;
 }
 
+.filter-count, .total-count_hardcode {
+    color: #01AED9;
+    font-weight:bold;
+}
+
 .hdx-3w-info {
 	/* position: relative; */
 	float: left;
