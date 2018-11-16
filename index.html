@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+
+  <head>
+    <title>Data4SDG Malawi dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> <!--href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/leaflet.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc-leaflet-legend.css"/>
+    <link rel="stylesheet" type="text/css" href="css/3w-dashboard.css"/>
+    <script src="//code.jquery.com/jquery.js"></script>
+  </head>
+  <body>
+    <div class="container" id="dashboard">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+			<div style="display:flex">
+				<img src="images/waterSDG.png" style="height: 80px; width: 80px; top: 50px; padding: 10px">
+				<div>
+					<h3>Data4SDG - Water Point Data Malawi<br>Interactive Dashboard</h3>
+				</div>
+			</div>
+            <div class="col-xs-12">Explore water point data from different sources with different attributes<br>9 November 2018</div>
+            <div id="count-info" class="col-xs-10">
+              <span class="filter-count "></span> selected out of <span class="total-count_hardcode">91,208</span> waterpoint locations
+            </div>
+            <div id="count-info" class="col-xs-2">
+			  <a style="background-color: #01AED9" class="btn btn-primary btn-sm" id="reset" onclick="resetAll()">Reset All</a>
+            </div>
+          </div>
+		<hr>
+          <div class="row">
+			<div id="attributes" class="col-lg-4">
+				<h4>Attributes</h4>
+				<div class="col-xs-12"># of sources</div>
+			</div>
+            <div id="sources" class="col-lg-8">
+                <h4>Sources</h4>
+                <div class="col-xs-12"># of waterpoints</div>
+            </div>
+		  </div>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <table class='table table-hover' id='dc-table-graph'>
+                <thead>
+                  <tr class='header'>
+                    <th>Source</th>
+                    <th># of waterpoints</th>
+                    <th>Enumeration Area code</th>		
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+		</div>
+		<div class="col-lg-6">
+          <!-- <h3>Map</h3> -->
+          <div id="map" style="width:600px; height:800px"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/lib/d3.js"></script>
+    <script type="text/javascript" src="js/lib/crossfilter.js"></script>
+    <script type="text/javascript" src="js/lib/dc.js"></script>
+    <script type="text/javascript" src="js/lib/leaflet.js"></script>
+    <script type="text/javascript" src="js/lib/dc.leaflet.js"></script>
+    <!-- <script type="text/javascript" src="js/lib/dc-leaflet-dev.js"></script> -->
+    <script type="text/javascript" src="js/lib/dc-leaflet.js"></script>
+    <script type="text/javascript" src="js/lib/topojson.js"></script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-46399763-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script> -->
+  </body>
+</html>

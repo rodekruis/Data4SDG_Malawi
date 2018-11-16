@@ -1,0 +1,47 @@
+/*
+ * Override dc.js default styles for selection
+ */
+
+.dc-chart g.row text {
+    fill: black;
+}
+.dc-chart path {
+	stroke-width: 1;
+    stroke: #666;
+    fill-opacity: 1;
+}
+/* .dc-row-graph .axis path, .axis line {
+    stroke: none
+} */
+
+/*
+ * Page specific styles
+ */
+
+.logo {
+    height:50px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.leaflet-clickable {
+    fill-opacity: 1;
+    stroke-width: 0;
+    stroke: transparent;
+}
+
+.leaflet-zoom-animated {
+	fill-opacity: 1;
+    stroke-width: 0;
+    stroke: transparent;
+}
+
+.hdx-3w-info {
+	/* position: relative; */
+	float: left;
+	padding:5px;
+    background-color:white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}

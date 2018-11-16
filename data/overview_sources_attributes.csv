@@ -1,0 +1,44 @@
+source;attribute;score
+Madzi Alipo;Free/paid service;0.5
+WPDx;Free/paid service;0.5
+DoIWD;Functionality;1
+Madzi Alipo;Functionality;1
+PCI;Functionality;0.5
+WPDx;Functionality;1
+510;GPS;1
+CJF;GPS;1
+DoIWD;GPS;1
+DoS;GPS;1
+Madzi Alipo;GPS;1
+MRCS;GPS;1
+OSM;GPS;1
+PCI;GPS;1
+WPDx;GPS;1
+DoIWD;Installation year;1
+Madzi Alipo;Installation year;1
+PCI;Installation year;0.5
+WPDx;Installation year;1
+DoIWD;Installer/Funder;1
+Madzi Alipo;Installer/Funder;1
+PCI;Installer/Funder;1
+WPDx;Installer/Funder;0.5
+WPDx;Management;0.5
+510;Reporter;1
+CJF;Reporter;1
+DoIWD;Reporter;1
+DoS;Reporter;1
+Madzi Alipo;Reporter;1
+MRCS;Reporter;1
+PCI;Reporter;1
+WPDx;Reporter;1
+510;Type of waterpoint;1
+DoIWD;Type of waterpoint;1
+Madzi Alipo;Type of waterpoint;1
+MRCS;Type of waterpoint;1
+PCI;Type of waterpoint;1
+WPDx;Type of waterpoint;1
+DoIWD;Reporting time;1
+Madzi Alipo;Reporting time;1
+MRCS;Reporting time;1
+PCI;Reporting time;1
+WPDx;Reporting time;1
