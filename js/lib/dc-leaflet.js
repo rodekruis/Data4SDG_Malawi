@@ -687,7 +687,7 @@
     };
 })();
 
-//Legend code adapted from http://leafletjs.com/examples/choropleth.html
+/* //Legend code adapted from http://leafletjs.com/examples/choropleth.html
 dc.leafletLegend = function () {
     var _parent, _legend = {};
     var _leafletLegend = null;
@@ -793,4 +793,4 @@ dc.leafletLegend = function () {
     };
 
     return _legend;
-};
+}; */
