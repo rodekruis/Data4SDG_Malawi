@@ -132,10 +132,6 @@ generateContent = function(admin_level) {
                         // }
                     })       
                 ;
-                const scaleOrdinal = d3.scale.linear()
-                                    .domain([1,2,3,4,5])
-                                    .range(['#f1eef6','#bdc9e1','#74a9cf','#2b8cbe','#045a8d']);
-                console.log(scaleOrdinal(4.9));
                     
                 // Table of activities data
                 data_table.width(960).height(800)
