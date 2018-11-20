@@ -40,10 +40,11 @@ generateContent = function(admin_level) {
                 var cf2 = crossfilter(attributes_data);
 
                 // Create dimensions
-                cf.id = cf.dimension(function(d) {return d.pcode; });
+                cf.id = cf.dimension(function(d) {return d.pcode ? d.pcode : ''; });
                 cf.source = cf.dimension(function(d) {return d.source; });
                 cf.source_fake = cf.dimension(function(d) {return d.source; });
                 cf2.attribute = cf2.dimension(function(d) {return d.attribute; });
+                cf2.attribute_fake = cf2.dimension(function(d) {return d.attribute; });
 
                 // Create cross-filter groups (sum waterpoints per EA and per source)
                 var id = cf.id.group().reduceSum(function(d){return d.value;});
@@ -52,9 +53,14 @@ generateContent = function(admin_level) {
                             
                 // Define this for filter-all and count-all
                 var all = cf.groupAll().reduceSum(function(d){return d.value;});
+                //console.log(all.value());
                 dc.dataCount("#count-info")
                     .dimension(cf)
                     .group(all);
+                dc.numberDisplay('#filter-count')
+                    .group(all)
+                    .valueAccessor(function (d) {console.log(d); return d;})
+                ;
 
                 // Define charts
                 dc.chartRegistry.clear();
@@ -80,7 +86,7 @@ generateContent = function(admin_level) {
                             var attribute_filter = chart.filters()[0];
                             var sources_filter = [];
                             attributes_data.forEach(function(e){ if (e.attribute == attribute_filter) {sources_filter.push(e.source);};});
-                            console.log(sources_filter);
+                            //console.log(sources_filter);
                             cf.source_fake.filter(function(d){ return sources_filter.indexOf(d) > -1; });
                             dc.redrawAll();
                         }
@@ -96,6 +102,17 @@ generateContent = function(admin_level) {
                     .colorAccessor(function(d, i){return 1;})
                     .ordering(function(d){return -d.value;})
                     .on('filtered',function(chart,filters){
+                        if (chart.filters().length == 0) {
+                            cf2.attribute_fake.filter(null);
+                            dc.redrawAll();
+                        } else {
+                            var source_filter = chart.filters()[0];
+                            var attributes_filter = [];
+                            attributes_data.forEach(function(e){ if (e.source == source_filter) {attributes_filter.push(e.attribute);};});
+                            //console.log(attributes_filter);
+                            cf2.attribute_fake.filter(function(d){ return attributes_filter.indexOf(d) > -1; });
+                            dc.redrawAll();
+                        }
                     })
                     ;
                 

@@ -31,9 +31,9 @@
                 <b>USE 2: Filter on attributes:</b> You can also first select one (or more) attribute in the Attributes-chart. The other charts will automatically reflect the sources in which this attribute is present.
             </div>
             <div id="count-info" class="col-xs-10">
-              <span class="filter-count"></span> selected out of <span class="total-count_hardcode">91,208</span> waterpoint observations
+              <!-- <span id="filter-count" class="filter-count"></span> selected out of <span class="total-count_hardcode">91,208</span> waterpoint observations -->
             </div>
-            <div id="count-info" class="col-xs-2">
+            <div class="col-xs-2">
 			  <a style="background-color: #01AED9" class="btn btn-primary btn-sm" id="reset" onclick="resetAll()">Reset All</a>
             </div>
           </div>
@@ -65,8 +65,8 @@
 		<div class="col-lg-6">
           <!-- <h3>Map</h3> -->
           <div class='row'>
-            <a style="background-color: #01AED9" class="btn btn-primary btn-sm" id="reset" onclick="setAdmin(3)">TA-level</a>
-            <a style="background-color: #01AED9" class="btn btn-primary btn-sm" id="reset" onclick="setAdmin(4)">GVH-level</a>
+            <a style="background-color: #01AED9; margin: 5px" class="btn btn-primary btn-sm" id="reset" onclick="setAdmin(3)">Switch to TA-level</a>
+            <a style="background-color: #01AED9; margin: 5px" class="btn btn-primary btn-sm" id="reset" onclick="setAdmin(4)">Switch to GVH-level</a>
           </div>
           <div id="map-container"></div>
             <div id="map" style="width:600px; height:800px"></div>
