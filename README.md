@@ -1,7 +1,7 @@
 Data4SDG Malawi Waterpoints dashboard
 ==============
 
-See dashboard at: https://jannisvisser.github.io/Data4SDG_Malawi/
+See dashboard at: https://rodekruis.github.io/Data4SDG_Malawi/
 
 To run locally: 
 1. Download or pull this repository to a local folder. 
