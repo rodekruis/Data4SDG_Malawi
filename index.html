@@ -25,7 +25,7 @@
 				</div>
 			</div>
             <div class="col-xs-12">
-                Explore waterpoint data available from different sources.<br>
+                Explore waterpoint data available from different sources. This dashboard is accompanying <a href="https://www.mdpi.com/2220-9964/7/12/456/htm" target="_blank">this paper</a>. Please inspect it for further details.<br>
                 <b>USE 1: Complementarity of multiple sources:</b> Click one source (e.g. CJF) in the Sources-chart, and see that the map will be quite empty. 
                 If you now select additional sources (by clicking them) the map will start to fill up more and more. This shows how multiple sources can complement each other.<br>
                 <b>USE 2: Filter on attributes:</b> You can also first select one (or more) attribute in the Attributes-chart. The other charts will automatically reflect the sources in which this attribute is present.
@@ -39,28 +39,16 @@
           </div>
 		<hr>
           <div class="row">
-			<div id="attributes" class="col-lg-4">
-				<h4>Attributes</h4>
-				<div class="col-xs-12"># of sources</div>
-			</div>
             <div id="sources" class="col-lg-8">
                 <h4>Sources</h4>
                 <div class="col-xs-12"># of waterpoints</div>
             </div>
+			<div id="attributes" class="col-lg-4">
+				<h4>Attributes</h4>
+				<div class="col-xs-12"># of sources</div>
+			</div>
 		  </div>
-          <div class='row'>
-            <div class='col-lg-12'>
-              <table class='table table-hover' id='dc-table-graph'>
-                <thead>
-                  <tr class='header'>
-                    <th>Source</th>
-                    <th># of waterpoints</th>
-                    <th>Enumeration Area code</th>		
-                  </tr>
-                </thead>
-              </table>
-            </div>
-          </div>
+          
 		</div>
 		<div class="col-lg-6">
           <!-- <h3>Map</h3> -->
@@ -68,12 +56,71 @@
             <a style="background-color: #01AED9; margin: 5px" class="btn btn-primary btn-sm" id="reset" onclick="setAdmin(3)">Switch to TA-level</a>
             <a style="background-color: #01AED9; margin: 5px" class="btn btn-primary btn-sm" id="reset" onclick="setAdmin(4)">Switch to GVH-level</a>
           </div>
-          <div id="map-container"></div>
+          <div id="map-container">
             <div id="map" style="width:600px; height:800px"></div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class='col-lg-12'>
+            <div class="container">
+              <table class="table table-stripe table-hover">
+                <thead class='header'>
+                  <tr>
+                    <th>Source</th>
+                    <th>Data provider</th>
+                    <th>Intermediary</th>
+                    <th>Data Infrastructure</th>	
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Madzi Alipo</td><td>Several</td><td><a href="https://www.fishermansrest.net/" target="_blank">Fishermen's rest</a></td><td><a href="https://www.madzialipoapp.org/" target="_blank">Madzi Alipo</a></td></tr>
+                    <tr><td>WPDx</td><td>Several</td><td><a href="https://www.waterpointdata.org/about-initiative/wpdx-working-group" target="_blank">WPDx Working Group</a></td><td><a href="https://www.waterpointdata.org/" target="_blank">WPDx</a></td></tr>
+                    <tr><td>DoIWD</td><td><a href="http://www.malawi.gov.mw/index.php?option=com_content&view=article&id=13&Itemid=99" target="_blank">Department of Irrigation and Water Development</a></td><td>-</td><td>Data provider</td></tr>
+                    <tr><td>PCI</td><td><a href="https://www.pciglobal.org/malawi/" target="_blank">Project Concern International</a></td><td>-</td><td>Data provider</td></tr>
+                    <tr><td>DoS</td><td><a href="http://www.lands.gov.mw/index.php/departments/surveys.html" target="_blank">Department of Surveys</a></td><td>-</td><td><a href="http://www.masdap.mw/" target="_blank">MASDAP</a></td></tr>
+                    <tr><td>MRCS</td><td><a href="https://www.redcross.mw/" target="_blank">Malawi Red Cross Society</a></td><td>-</td><td>Data provider</td></tr>
+                    <tr><td>510</td><td><a href="https://www.510.global/" target="_blank">510</a></td><td>-</td><td><a href="https://geonode.510.global/" target="_blank">510</a></td></tr>
+                    <tr><td>OSM</td><td>Satellite imagery (from e.g. Bing, Google Maps) and mappers</td><td><a href="https://wiki.openstreetmap.org/wiki/WikiProject_Malawi" target="_blank">Humanitarian OpenStreetMap Team, Missing Maps, OSM community Malawi</a></td><td><a href="https://www.openstreetmap.org/relation/195290" target="_blank">Openstreetmap (OSM)</a></td></tr>
+                    <tr><td>CJF</td><td>Several subcontractors and government agencies</td><td><a href="https://www.cjfwaterfuturesprogramme.com/" target="_blank">WaterFuturesProgram </a></td><td><a href="https://portal.mwater.co/" target="_blank">mWater</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
     </div>
+    
+    <div id="tableModal" class="modal sidebar-modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <button type="button" class="close" data-dismiss="modal">
+                        <i aria-hidden="true">Close</i>
+                    </button> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span onclick="closeModal()" aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title">Waterpoints for selected area</h4>
+                </div>
+                <div class="modal-body" style="word-break:break-all">
+                    <div class='row'>
+                        <div class='col-lg-12'>
+                          <table class='table table-striped' id='table-areas'>
+                            <thead>
+                              <tr class='header'>
+                                <th>Area code</th>	
+                                <th>Source</th>
+                                <th># of waterpoints</th>	
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script type="text/javascript" src="js/lib/d3.js"></script>
     <script type="text/javascript" src="js/lib/crossfilter.js"></script>
     <script type="text/javascript" src="js/lib/dc.js"></script>

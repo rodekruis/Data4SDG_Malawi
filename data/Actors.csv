@@ -1,0 +1,10 @@
+name;provider_type;provider_name;provider_link;int_name;int_link;infra_type;infra_name;infra_link
+Madzi Alipo;Several;n/a;n/a;Fishermen's rest;https://www.fishermansrest.net/;Multi-site repository;Madzi Alipo;https://www.madzialipoapp.org/
+WPDx;Several;n/a;n/a;WPDx Working Group;https://www.waterpointdata.org/about-initiative/wpdx-working-group;Multi-site repository;WPDx;https://www.waterpointdata.org/
+DoIWD;DoIWD;Department of Irrigation and Water Development;http://www.malawi.gov.mw/index.php?option=com_content&view=article&id=13&Itemid=99;N/a;n/a;Data holder;N/a;n/a
+PCI;PCI;Project Concern International;https://www.pciglobal.org/malawi/;N/a;n/a;Data holder;N/a;n/a
+DoS;DoS;Department of Surveys;http://www.lands.gov.mw/index.php/departments/surveys.html;N/a;n/a;Multi-site repository;MASDAP;http://www.masdap.mw/
+MRCS;MRCS;Malawi Red Cross Society;https://www.redcross.mw/;N/a;n/a;Data holder;N/a;n/a
+510;510;510;https://www.510.global/;N/a;n/a;Data holder;N/a;https://geonode.510.global/
+OSM;Satellite imagery (from e.g. Bing, Google Maps) and mappers;n/a;;Humanitarian OpenStreetMap Team, Missing Maps, OSM community Malawi;https://wiki.openstreetmap.org/wiki/WikiProject_Malawi;Multi-site repository;Openstreetmap (OSM);https://www.openstreetmap.org/relation/195290
+CJF;Several subcontractors and government agencies;n/a;;WaterFuturesProgram ;https://www.cjfwaterfuturesprogramme.com/;Multi-site repository;mWater;https://portal.mwater.co/

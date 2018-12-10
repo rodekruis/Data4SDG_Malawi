@@ -7,6 +7,7 @@ var labels_admin3 = ['0','<100','<200','<500','500+'];
 var color_thresholds;
 var legend_labels;
 var map;
+var map_chart;
 
 setAdmin = function(admin_level) {
     document.getElementById('map-container').innerHTML = "<div id='map' style='width:600px; height:800px'></div>";
@@ -17,10 +18,12 @@ setAdmin = function(admin_level) {
 
 resetAll = function() {
     //href="javascript:dc.filterAll();dc.redrawAll();"
-    $('#dc-table-graph').hide();
+    $('#table-areas').hide();
     dc.filterAll();
     dc.redrawAll();
 };
+
+
 
 
 generateContent = function(admin_level) {
@@ -68,10 +71,11 @@ generateContent = function(admin_level) {
                 var map_chart = dc.leafletChoroplethChart("#map");
                 var attribute_chart = dc.rowChart("#attributes");
                 var source_chart = dc.rowChart("#sources");
-                var data_table = dc.dataTable("#dc-table-graph");
+                var areas_table = dc.dataTable("#table-areas");
+                //var sources_table = dc.dataTable("#table-sources");
                 
                 // Configure Attributes row-chart
-                attribute_chart.width(200).height(300)
+                attribute_chart.width(200).height(400)
                     .dimension(cf2.attribute)
                     .group(attribute)
                     .colors(['#01AED9'])
@@ -94,7 +98,7 @@ generateContent = function(admin_level) {
                     ;
                 
                 // Define Sources row-chart
-                source_chart.width(400).height(300)
+                source_chart.width(400).height(400)
                     .dimension(cf.source)
                     .group(source)
                     .colors(['#01AED9'])
@@ -140,29 +144,44 @@ generateContent = function(admin_level) {
                     .renderPopup(true)
                     .legend(dc.leafletLegend(legend_labels).position('topright'))     
                     .on('filtered',function(chart,filters){
-                        // if (chart.filters().length > 0){
-                            // source_chart.filter(null);
-                            // source_chart.redraw();
-                            // $('#dc-table-graph').show();
-                        // } else {
-                            // $('#dc-table-graph').hide();
-                        // }
+                        if (chart.filters().length > 0){
+                            source_chart.filter(null);
+                            source_chart.redraw();
+                            $('#table-areas').show();
+                            $('#tableModal').show();
+                        } else {
+                            $('#table-areas').hide();
+                        }
                     })       
                 ;
                     
                 // Table of activities data
-                data_table.width(960).height(800)
+                areas_table.width(960).height(800)
                     .dimension(cf.id)
                     .group(function(d) { return ""; })
                     .size(200)
                     .columns([
+                        function(d) { return d.pcode; },
                         function(d) { return d.source; },
-                        function(d) { return d.value; },
-                        function(d) { return d.pcode; }
+                        function(d) { return d.value; }
                     ])
                     .order(d3.ascending)
+                    .sortBy(function (d) {
+						   return -d.value;
+                    })
                 ;	
-                 
+                
+                closeModal = function() {
+                    map_chart.filter(null);
+                    dc.redrawAll();
+                    //dc.dataTable("#table-areas").filter(null);
+                    //dc.dataTable("#table-areas").redraw();
+                    //dc.filterAll();
+                    //dc.redrawAll();
+                    $('#tableModal').hide();
+                };
+                
+               
 
                 // var map_chart = dc.leafletMarkerChart("#map");
                 // map_chart.width(660).height(800)
@@ -174,7 +193,7 @@ generateContent = function(admin_level) {
                   // .filterByArea(true);
                 
                 // LOAD CONTENT
-                $('#dc-table-graph').hide();
+                $('#table-areas').hide();
                 dc.renderAll();
                 var map = map_chart.map();
                 // var polygon_layer;
