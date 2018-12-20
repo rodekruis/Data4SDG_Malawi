@@ -96,6 +96,7 @@ generateContent = function(admin_level) {
                             dc.redrawAll();
                         }
                     })
+                    .xAxis().tickFormat(function (v) {return v/1000 + 'k';})
                     ;
                 
                 // Configure Attributes row-chart
