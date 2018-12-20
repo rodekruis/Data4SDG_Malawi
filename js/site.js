@@ -74,31 +74,9 @@ generateContent = function(admin_level) {
                 var areas_table = dc.dataTable("#table-areas");
                 //var sources_table = dc.dataTable("#table-sources");
                 
-                // Configure Attributes row-chart
-                attribute_chart.width(200).height(400)
-                    .dimension(cf2.attribute)
-                    .group(attribute)
-                    .colors(['#01AED9'])
-                    .colorDomain([0,0])
-                    .colorAccessor(function(d, i){return 1;})
-                    .ordering(function(d){return -d.value;})
-                    .on('filtered',function(chart,filters){
-                        if (chart.filters().length == 0) {
-                            cf.source_fake.filter(null);
-                            dc.redrawAll();
-                        } else {
-                            var attribute_filter = chart.filters()[0];
-                            var sources_filter = [];
-                            attributes_data.forEach(function(e){ if (e.attribute == attribute_filter) {sources_filter.push(e.source);};});
-                            //console.log(sources_filter);
-                            cf.source_fake.filter(function(d){ return sources_filter.indexOf(d) > -1; });
-                            dc.redrawAll();
-                        }
-                    })
-                    ;
-                
+               
                 // Define Sources row-chart
-                source_chart.width(400).height(400)
+                source_chart.width(350).height(400)
                     .dimension(cf.source)
                     .group(source)
                     .colors(['#01AED9'])
@@ -120,6 +98,29 @@ generateContent = function(admin_level) {
                     })
                     ;
                 
+                // Configure Attributes row-chart
+                attribute_chart.width(250).height(400)
+                    .dimension(cf2.attribute)
+                    .group(attribute)
+                    .colors(['#01AED9'])
+                    .colorDomain([0,0])
+                    .colorAccessor(function(d, i){return 1;})
+                    .ordering(function(d){return -d.value;})
+                    .on('filtered',function(chart,filters){
+                        if (chart.filters().length == 0) {
+                            cf.source_fake.filter(null);
+                            dc.redrawAll();
+                        } else {
+                            var attribute_filter = chart.filters()[0];
+                            var sources_filter = [];
+                            attributes_data.forEach(function(e){ if (e.attribute == attribute_filter) {sources_filter.push(e.source);};});
+                            //console.log(sources_filter);
+                            cf.source_fake.filter(function(d){ return sources_filter.indexOf(d) > -1; });
+                            dc.redrawAll();
+                        }
+                    })
+                    ;
+                    
                 // Define EA map-chart
                 map_chart.width(660).height(800)
                     .dimension(cf.id)
